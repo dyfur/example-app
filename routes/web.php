@@ -38,8 +38,18 @@ Route::get('/planets', function () {
             'description' => 'Jupiter is a gas giant and doesn\'t have a solid surface, but it may have a solid inner core about the size of Earth.'
         ],
     ];
+    
+    $collection = collect($planets);
 
-    return view('planets', ['planets' => $planets]);
+    if (request()->has('planeet')) {
+        $zoekterm = strtolower(request('planeet'));
+
+        $collection = $collection->filter(function ($planet) use ($zoekterm) {
+            return strtolower($planet['name']) === $zoekterm;
+        });
+    }
+
+    return view('planets', ['planeten' => $collection->all()]);
 });
 
 ?>
