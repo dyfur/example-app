@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    <a href="{{ route('planets.index') }}">Terug naar alle planeten</a>
     
     <h1>{{ $planet['name'] }}</h1>
     <p>{{ $planet['description'] }}</p>

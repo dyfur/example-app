@@ -5,8 +5,7 @@ use App\Http\Controllers\PlanetController;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
+})->name('home');
 
 Route::get('/planeten', function () { 
     return [ 
@@ -21,7 +20,6 @@ Route::get('/planeten', function () {
     ]; 
 });
 
-
-Route::get('/planets', [PlanetController::class, 'index']);
-Route::get('/planets/{planet}', [PlanetController::class, 'show']);
+Route::get('/planets', [PlanetController::class, 'index'])->name('planets.index');
+Route::get('/planets/{planet}', [PlanetController::class, 'show'])->name('planets.show');
 ?>

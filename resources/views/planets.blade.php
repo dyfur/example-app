@@ -4,6 +4,7 @@
     <title>Planets</title>
 </head>
 <body>
+    
     <h1>Alle planeten</h1>
     
     @foreach($planeten as $key => $planet)
